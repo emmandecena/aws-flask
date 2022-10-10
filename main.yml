@@ -92,8 +92,21 @@ Resources:
             # Install Flask
             pip3 install flask
             
+
+            # Download latest code, unzip it into /home/ec2-user/app
+            wget https://github.com/emmandecena/aws-flask/archive/refs/heads/main.zip
+            unzip main.zip
+            mv aws-flask app
+
+
             # Create log directory
             mkdir -p /home/ec2-user/app/logs
+
+
+            # Run server
+
+            cd app
+            FLASK_APP=hello.py FLASK_DEBUG=true flask run
           EOF
 
           chown ec2-user:ec2-user /tmp/install_script.sh && chmod a+x /tmp/install_script.sh
