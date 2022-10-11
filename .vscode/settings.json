@@ -1,5 +1,8 @@
 {
   "yaml.schemas": {
-    "https://raw.githubusercontent.com/awslabs/goformation/master/schema/cloudformation.schema.json": "file:///Users/emmanueldecena/Data/projects/aws-flask/main.yml"
+    "https://raw.githubusercontent.com/awslabs/goformation/master/schema/cloudformation.schema.json": [
+      "file:///Users/emmanueldecena/Data/projects/aws-flask/main.yml"
+    ],
+    "https://json.schemastore.org/yamllint.json": "file:///Users/emmanueldecena/Data/projects/aws-flask/main.yaml"
   }
 }

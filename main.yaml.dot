@@ -1,0 +1,9 @@
+digraph "template" {
+SecurityGroup [label="SecurityGroup\n<AWS::EC2::SecurityGroup>"];
+InstanceRole [label="InstanceRole\n<AWS::IAM::Role>"];
+InstanceProfile [label="InstanceProfile\n<AWS::IAM::InstanceProfile>"];
+Instance [label="Instance\n<AWS::EC2::Instance>"];
+InstanceProfile -> InstanceRole  [key=0, label=Ref];
+Instance -> InstanceProfile  [key=0, label=Ref];
+Instance -> SecurityGroup  [key=0, label=GetAtt];
+}
