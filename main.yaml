@@ -51,6 +51,7 @@ Resources:
 
   Instance:
     Type: AWS::EC2::Instance
+    DeletionPolicy: Retain
     CreationPolicy:
       ResourceSignal:
         Timeout: PT15M
@@ -113,8 +114,7 @@ Resources:
           sleep 1; su - ec2-user -c "/tmp/install_script.sh"
 
           # Signal to CloudFormation that the instance is ready
-          /opt/aws/bin/cfn-signal -e $? --stack ${AWS::StackName} --region ${AWS::Region} --resource ${!LOGICAL_ID}
-
+          /opt/aws/bin/cfn-signal -e $? --stack ${AWS::StackName} --region ${AWS::Region} --resource Instance
       Tags:
         - Key: Name
           Value: !Ref AWS::StackName
