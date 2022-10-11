@@ -108,7 +108,7 @@ Resources:
                   # Run server
                   cd app
                   FLASK_APP=hello.py FLASK_DEBUG=true flask run --host=0.0.0.0
-                  EOF
+          EOF
 
           chown ec2-user:ec2-user /tmp/install_script.sh && chmod a+x /tmp/install_script.sh
 
