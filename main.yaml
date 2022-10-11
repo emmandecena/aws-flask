@@ -46,7 +46,7 @@ Resources:
     Type: "AWS::IAM::InstanceProfile"
     Properties:
       Roles:
-        - !Ref InstanceRole
+        - Ref: InstanceRole
 
   Instance:
     Type: AWS::EC2::Instance
