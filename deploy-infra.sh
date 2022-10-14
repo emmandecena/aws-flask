@@ -6,7 +6,7 @@ CLI_PROFILE=aws-flask
 EC2_INSTANCE_TYPE=t2.micro
 
 # Deploy the CloudFormation template
-echo -e "\n\n=========== Deploying main.yaml ===========" 
+echo -e "\n=========== Deploying main.yaml ===========" 
 aws cloudformation deploy \
 --region $REGION \
 --profile $CLI_PROFILE \

@@ -91,16 +91,20 @@ Resources:
                   # Dot source the files to ensure that variables are available within the current shell
                   . /home/ec2-user/.bashrc
 
-                  # Create log directory
-                  mkdir -p /home/ec2-user/app/logs
-
                   # Download latest code, unzip it into /home/ec2-user/app
                   wget https://github.com/emmandecena/aws-flask/archive/refs/heads/main.zip
                   unzip main.zip
+
+                  # Rename
                   mv aws-flask-main app
                   cd app
-                  # Install Flask
+
+                  # Install app
                   pip3 install -r requirements.txt
+
+                  # Create log directory
+                  mkdir -p /home/ec2-user/app/logs
+
                   # Run server
                   FLASK_APP=hello.py FLASK_DEBUG=true flask run --host=0.0.0.0
           EOF
