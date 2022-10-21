@@ -15,8 +15,8 @@ Resources:
 
       SecurityGroupIngress:
         - IpProtocol: tcp
-          FromPort: 5000
-          ToPort: 5000
+          FromPort: 8000
+          ToPort: 8000
           CidrIp: 0.0.0.0/0
         - IpProtocol: tcp
           FromPort: 22
@@ -107,7 +107,7 @@ Resources:
 
                   # Run server
                   #FLASK_APP=hello.py FLASK_DEBUG=true flask run --host=0.0.0.0
-                  gunicorn -w 4 'hello:app'
+                  gunicorn -w 4 -b 0.0.0.0 'hello:app'
           EOF
 
           chown ec2-user:ec2-user /tmp/install_script.sh && chmod a+x /tmp/install_script.sh
@@ -123,6 +123,6 @@ Resources:
 Outputs:
   InstanceEndpoint:
     Description: The DNS name for the created instance
-    Value: !Sub "http://${Instance.PublicDnsName}:5000"
+    Value: !Sub "http://${Instance.PublicDnsName}:8000"
     Export:
       Name: InstanceEndpoint
